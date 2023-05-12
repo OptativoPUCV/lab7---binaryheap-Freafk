@@ -88,6 +88,9 @@ void downHeap(Heap *pq,int index){
 }
 
 void heap_pop(Heap* pq){
+  for(int i =0; i<pq->size;i++){
+    printf("%d, ",pq->heapArray[i].priority);
+  }
   heapElem ultimo=pq->heapArray[pq->size];
   pq->heapArray[0]=ultimo;
   pq->heapArray[pq->size]=pq->heapArray[pq->size+1];
