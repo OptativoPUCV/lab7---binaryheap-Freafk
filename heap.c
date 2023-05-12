@@ -47,10 +47,6 @@ void upHeap(Heap *pq,int index){
   }
 }
 
-
-
-
-
 void heap_push(Heap* pq, void* data, int priority){
   heapElem node={data,priority};
   
@@ -65,10 +61,38 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->size++;
 }
 
+void downHeap(Heap *pq,int index){
+
+  int leftIndex=index*2;
+  int rightIndex=(index*2)+1;
+  if(!leftIndex && !rightIndex)return;
+  
+  if(pq->heapArray[leftIndex].priority<pq->heapArray[rightIndex].priority){
+      if((pq->heapArray[index].priority<pq->heapArray[leftIndex].priority)){
+        heapElem aux=pq->heapArray[leftIndex];
+        pq->heapArray[leftIndex]=pq->heapArray[index];
+        pq->heapArray[index]=aux;
+        downHeap(pq, leftIndex);
+      }
+  }
+  else{
+      if((pq->heapArray[index].priority<pq->heapArray[rightIndex].priority)){
+        heapElem aux=pq->heapArray[rightIndex];
+        pq->heapArray[rightIndex]=pq->heapArray[index];
+        pq->heapArray[index]=aux;
+        downHeap(pq, rightIndex);
+      }
+  }
+  
+  
+}
 
 void heap_pop(Heap* pq){
-
-   
+  heapElem ultimo=pq->heapArray[pq->size];
+  pq->heapArray[0]=ultimo;
+  pq->heapArray[pq->size]=pq->heapArray[pq->size+1];
+  pq->size--;
+  downHeap(pq,0);
 }
 
 Heap* createHeap(){
