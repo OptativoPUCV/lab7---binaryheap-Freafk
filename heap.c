@@ -62,9 +62,16 @@ void heap_push(Heap* pq, void* data, int priority){
 }
 
 void downHeap(Heap *pq,int index){
-
-  int leftIndex=index*2;
-  int rightIndex=(index*2)+1;
+  int leftIndex;
+  int rightIndex;
+  if(index==0){
+    leftIndex=1;
+    rightIndex=2;
+  }
+  else{
+    int leftIndex=index*2;
+    int rightIndex=(index*2)+1;
+  }
   if(!leftIndex && !rightIndex)return;
   
   if(pq->heapArray[leftIndex].priority<pq->heapArray[rightIndex].priority){
