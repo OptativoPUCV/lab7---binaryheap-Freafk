@@ -74,7 +74,7 @@ void downHeap(Heap *pq,int index){
   }
   if(!leftIndex && !rightIndex)return;
   
-  if(pq->heapArray[leftIndex].priority<pq->heapArray[rightIndex].priority){
+  if(pq->heapArray[leftIndex].priority>pq->heapArray[rightIndex].priority){
       if((pq->heapArray[index].priority<pq->heapArray[leftIndex].priority)){
         heapElem aux=pq->heapArray[leftIndex];
         pq->heapArray[leftIndex]=pq->heapArray[index];
