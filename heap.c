@@ -57,7 +57,7 @@ void heap_push(Heap* pq, void* data, int priority){
   }
   heapElem node={data,priority};
   if(pq->size>=pq->capac-1){
-    pq->heapArray=realloc(pq->heapArray,sizeof(heapElem)*(pq->capac*2));
+    pq->heapArray=realloc(pq->heapArray,sizeof(heapElem)*((pq->capac*2)+1));
   }
   int index=pq->size;
   pq->heapArray[index]=node;
