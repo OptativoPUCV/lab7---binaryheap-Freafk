@@ -36,7 +36,7 @@ void upHeap(Heap *pq,int index){
   else{
     indexPadre=(index-1)/2;
   }
-  if(pq->heapArray[index].priority>pq->heapArray[indexPadre].priority){
+  if(pq->heapArray[index].priority<pq->heapArray[indexPadre].priority){
     heapElem aux=pq->heapArray[indexPadre];
     pq->heapArray[indexPadre]=pq->heapArray[index];
     pq->heapArray[index]=aux;
