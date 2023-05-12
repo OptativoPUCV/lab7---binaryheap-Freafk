@@ -55,7 +55,7 @@ void heap_push(Heap* pq, void* data, int priority){
   printf("%d,%d",pq->capac,pq->size);
   heapElem node={data,priority};
   if(pq->size>=pq->capac-1){
-    int cap=(pq->capac*2)+1;
+    int cap=((pq->capac)*2)+1;
     pq->heapArray=realloc(pq->heapArray,sizeof(heapElem)*cap);
   }
   int index=pq->size;
