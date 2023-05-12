@@ -16,70 +16,31 @@ typedef struct Heap{
   int capac;
 } Heap;
 
-void* heap_top(Heap* monticulo){
-    if (monticulo->size == 0){
-        return NULL;
-    }
-    else{
-        return monticulo->heapArray[0].data;
-    }
+
+void* heap_top(Heap* pq){
+    return NULL;
 }
 
-void heap_push(Heap* monticulo, void* data, int prioridad){
-    if (monticulo->size == monticulo->capac){
-        monticulo->capac = monticulo->capac * 2 + 1; 
-        monticulo->heapArray = realloc(monticulo->heapArray, monticulo->capac * sizeof(heapElem));
-    }
-    
-    int indice = monticulo->size;
-    monticulo->heapArray[indice].data = data;
-    monticulo->heapArray[indice].priority = prioridad;
-    monticulo->size++;
 
-    while (indice != 0 && monticulo->heapArray[(indice - 1) / 2].priority < monticulo->heapArray[indice].priority){
-        heapElem temp = monticulo->heapArray[(indice - 1) / 2];
-        monticulo->heapArray[(indice - 1) / 2] = monticulo->heapArray[indice];
-        monticulo->heapArray[indice] = temp;
-        indice = (indice - 1) / 2;
-    }
+
+void heap_push(Heap* pq, void* data, int priority){
+
 }
 
-void heap_pop(Heap* monticulo){
-    if (monticulo->size == 0){
-        return;
-    }
 
-    monticulo->heapArray[0] = monticulo->heapArray[monticulo->size - 1];
-    monticulo->size--;
-    
-    int indice = 0;
-    while (1){
-        int hijoIzquierdo = 2 * indice + 1;
-        int hijoDerecho = 2 * indice + 2;
-        int mayor = indice;
-        
-        if (hijoIzquierdo < monticulo->size && monticulo->heapArray[hijoIzquierdo].priority > monticulo->heapArray[mayor].priority){
-            mayor = hijoIzquierdo;
-        }
-        if (hijoDerecho < monticulo->size && monticulo->heapArray[hijoDerecho].priority > monticulo->heapArray[mayor].priority){
-            mayor = hijoDerecho;
-        }
-        if (mayor == indice){
-            break;
-        }
-        
-        heapElem temp = monticulo->heapArray[indice];
-        monticulo->heapArray[indice] = monticulo->heapArray[mayor];
-        monticulo->heapArray[mayor] = temp;
-        indice = mayor;
-    }
+void heap_pop(Heap* pq){
+
+   
 }
 
 Heap* createHeap(){
-    Heap* monticulo = malloc(sizeof(Heap));
-    monticulo->size = 0;
-    monticulo->capac = 3; 
-    monticulo->heapArray = malloc(monticulo->capac * sizeof(heapElem));
+  Heap *local=malloc(sizeof(Heap));
+  if(local==NULL){
+    printf("No se pudo asignar memoria al Heap");
+    exit(1);
+  }
+  local->heapArray=malloc(sizeof(heapElem)*3);
+  
    
-   return monticulo;
+   return local;
 }
