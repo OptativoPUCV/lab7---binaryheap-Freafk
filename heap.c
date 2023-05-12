@@ -20,6 +20,7 @@ typedef struct Heap{
 void* heap_top(Heap* pq){
   
   void *aux=&pq->heapArray[1].data;
+  printf("%d",pq->heapArray[1].priority);
   return aux;
 }
 
