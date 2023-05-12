@@ -40,6 +40,8 @@ Heap* createHeap(){
     exit(1);
   }
   local->heapArray=malloc(sizeof(heapElem)*3);
+  local->size=0;
+  local->capac=3;
   
    
    return local;
