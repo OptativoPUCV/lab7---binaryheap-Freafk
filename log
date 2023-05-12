@@ -228,3 +228,13 @@ Fri 12 May 2023 05:15:18 PM UTC:
  tests:  5|2
 total_score: 35/70
 3fef2b8
+Fri 12 May 2023 05:16:02 PM UTC: 
+ heap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:58:28: error: expected ‘,’ or ‘;’ before ‘)’ token
+   58 |     int cap=(pq->capac*2)+1);
+      |                            ^
+Compilation failed
+e0b0e36
