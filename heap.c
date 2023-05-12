@@ -54,8 +54,9 @@ void heap_push(Heap* pq, void* data, int priority){
   }
   int index=pq->size;
   pq->heapArray[index]=node;
-  pq->size++;
+
   upHeap(pq,index);
+  pq->size++;
 }
 
 
