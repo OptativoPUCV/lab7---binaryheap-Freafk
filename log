@@ -96,3 +96,14 @@ Fri 12 May 2023 04:35:07 PM UTC:
  tests:  1|3
 total_score: 10/70
 4b28506
+Fri 12 May 2023 04:36:37 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘heap_top’:
+heap.c:22:13: error: unused variable ‘aux’ [-Werror=unused-variable]
+   22 |   heapElem *aux=&pq->heapArray[0];
+      |             ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+b3f4984
