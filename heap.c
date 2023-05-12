@@ -52,18 +52,17 @@ void upHeap(Heap *pq,int index){
 
 
 void heap_push(Heap* pq, void* data, int priority){
-  printf("%d,%d",pq->capac,pq->size);
   heapElem node={data,priority};
+  
   if(pq->size>=pq->capac-1){
     pq->capac=((pq->capac)*2)+1;
     pq->heapArray=realloc(pq->heapArray,sizeof(heapElem)*(((pq->capac)*2)+1));
-  
   }
+  
   int index=pq->size;
   pq->heapArray[index]=node;
   upHeap(pq,index);
   pq->size++;
-  printf("%d,%d",pq->capac,pq->size);
 }
 
 
