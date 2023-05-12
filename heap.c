@@ -29,6 +29,7 @@ void* heap_top(Heap* pq){
 
 void upHeap(Heap *pq,int index){
   int indexPadre;
+  if(index==0)return;
   if(index%2==0){
     indexPadre=index/2;
   }
@@ -54,7 +55,6 @@ void heap_push(Heap* pq, void* data, int priority){
   }
   int index=pq->size;
   pq->heapArray[index]=node;
-
   upHeap(pq,index);
   pq->size++;
 }
