@@ -50,7 +50,7 @@ void upHeap(Heap *pq,int index){
 
 void heap_push(Heap* pq, void* data, int priority){
   for(int i=0;i<pq->size;i++){
-    printf("%d, ",pq->heapArray[i]);
+    printf("%d, ",pq->heapArray[i].priority);
   }
   heapElem node={data,priority};
   if(pq->size==pq->capac-2){
