@@ -19,7 +19,7 @@ typedef struct Heap{
 
 void* heap_top(Heap* pq){
   
-  heapElem *aux=&pq->heapArray[0];
+  //heapElem *aux=&pq->heapArray[0];
   return pq->heapArray[0].data;
 }
 
