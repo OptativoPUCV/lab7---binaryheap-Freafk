@@ -27,7 +27,7 @@ void* heap_top(Heap* monticulo){
 
 void heap_push(Heap* monticulo, void* data, int prioridad){
     if (monticulo->size == monticulo->capac){
-        monticulo->capac *= 2;
+        monticulo->capac = monticulo->capac * 2 + 1; // Cambiar a capac * 2 + 1
         monticulo->heapArray = realloc(monticulo->heapArray, monticulo->capac * sizeof(heapElem));
     }
     
@@ -78,7 +78,7 @@ void heap_pop(Heap* monticulo){
 Heap* createHeap(){
     Heap* monticulo = malloc(sizeof(Heap));
     monticulo->size = 0;
-    monticulo->capac = 10;
+    monticulo->capac = 3; // Cambiar a 3
     monticulo->heapArray = malloc(monticulo->capac * sizeof(heapElem));
    
    return monticulo;
