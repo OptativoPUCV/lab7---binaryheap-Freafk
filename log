@@ -167,3 +167,16 @@ Fri 12 May 2023 05:07:37 PM UTC:
  tests:  3|2
 total_score: 25/70
 389f4db
+Fri 12 May 2023 05:09:53 PM UTC: 
+ heap.c | 3 +++
+ 1 file changed, 3 insertions(+)
+In file included from test.c:4:
+heap.c: In function ‘heap_push’:
+heap.c:53:14: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘heapElem’ {aka ‘struct nodo’} [-Werror=format=]
+   53 |     printf("%d, ",pq->heapArray[i]);
+      |             ~^    ~~~~~~~~~~~~~~~~
+      |              |                 |
+      |              int               heapElem {aka struct nodo}
+cc1: all warnings being treated as errors
+Compilation failed
+6f43f09
