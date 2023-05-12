@@ -61,6 +61,7 @@ void heap_push(Heap* pq, void* data, int priority){
   pq->heapArray[index]=node;
   upHeap(pq,index);
   pq->size++;
+  printf("%d,%d",pq->capac,pq->size);
 }
 
 
