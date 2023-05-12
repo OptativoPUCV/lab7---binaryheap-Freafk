@@ -69,8 +69,8 @@ void downHeap(Heap *pq,int index){
     rightIndex=2;
   }
   else{
-    int leftIndex=index*2;
-    int rightIndex=(index*2)+1;
+    leftIndex=index*2;
+    rightIndex=(index*2)+1;
   }
   if(!leftIndex && !rightIndex)return;
   
